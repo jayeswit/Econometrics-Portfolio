@@ -45,13 +45,12 @@ Where:
 
 ### Part A – Data Description and Summary Statistics
 Overview of housing characteristics and descriptive statistics.
-
-### Part B – Baseline Estimation
 OLS regression including structural and location variables.
 
-### Part C – Model Refinement
+### Part B – Baseline Estimation
 Creation of neighborhood dummy variables and re-estimation.  
 Comparison of results before and after removing outliers.
+
 
 ## Part C – Relationship Between Price and Distance to CBD and Interstate
 
