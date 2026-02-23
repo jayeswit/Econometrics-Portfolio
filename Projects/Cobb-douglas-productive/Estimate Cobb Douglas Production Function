@@ -20,3 +20,73 @@ gen lnk=ln(k)
 gen lnl=ln(l)
 gen lnm=ln(m)
 gen lne=ln(e)
+
+B) Run linear regression line to estimate:
+## Regression Results
+
+**Dependent variable:** ln(Q)  
+**Estimation method:** OLS with robust standard errors  
+
+Number of observations = 46  
+F(4, 41) = 1237.41  
+Prob > F = 0.0000  
+R² = 0.9867  
+Root MSE = 0.04328  
+
+| Variable | Coefficient | Robust Std. Err. | t-stat | p-value | 95% CI |
+|----------|------------|------------------|--------|---------|----------------|
+| ln(E)    | 0.1099     | 0.1353           | 0.81   | 0.421   | [-0.1634, 0.3832] |
+| ln(K)    | 0.1202     | 0.0872           | 1.38   | 0.176   | [-0.0559, 0.2962] |
+| ln(L)    | 0.0256     | 0.1258           | 0.20   | 0.840   | [-0.2286, 0.2798] |
+| ln(M)    | 0.7799***  | 0.1470           | 5.31   | 0.000   | [0.4832, 1.0766] |
+| Constant | 0.6131     | 0.8691           | 0.71   | 0.485   | [-1.1421, 2.3683] |
+
+\* p < 0.10  
+\** p < 0.05  
+\*** p < 0.01  
+
+ln(Q) = 0.6131 + 0.1202 ln(K) + 0.0256 ln(L) + 0.1099 ln(E) + 0.7799 ln(M)
+
+Interpretation:
+-intercept 0.613093 represents that when capital, labor, energy, and material are all zero, the predicted natural log of output on average is 0.613093. This is not statistically significant because p-value is 0.485, which is larger than the significance level 0.05. Hence, the y-intercept is not statistically significant at significance level of 0.05.
+
+- Capital ln(k): A 1% increase in capital K, it is predicted that on average there will be an approximate 0.1202% increase in output Q, as all other factors holding constant. This is not statistically significant because p-value is 0.176, which is larger than the significance level 0.05. Hence, the coefficient of ln(k) is not statistically significant at significance level of 0.05.
+
+-Labor (ln(l)): A 1% increase in labor L, it is predicted that on average there will be an approximate 0.0256% increase in output Q, holding all other factors constant.  This is not statistically significant because p-value is 0.840, which is larger than the significance level 0.05. Hence, the coefficient of ln(l) is not statistically significant at significance level of 0.05.
+
+-Energy (ln(e)): A 1% increase in energy e, it is predicted that on average there will be an approximate 0.1099% increase in output Q, holding all other factors constant. This is not statistically significant because p-value is 0.421, which is larger than the significance level 0.05. Hence, the coefficient of ln(e) is not statistically significant at significance level of 0.05.
+
+-Material (ln(m)): A 1% increase in materials M, it is predicted that on average there will be an approximate 0.7799% increase in output Q, holding all other factors constant.  This is not statistically significant because p-value is 0.000, which is smaller than the significance level 0.05. Hence, the coefficient of ln(m) is statistically significant at significance level of 0.05.
+
+-Overall fitting: The R-squared value of 0.987 indicates that 98.7% of the variability in the output Q can be explained by the model and all those input variables.  Hence, the overall fitting of this model is relatively high.
+
+C) Conduct F test
+### Joint Significance Test
+
+Null Hypothesis (H₀):  
+β_lnM = 0  
+β_lnE = 0  
+
+Alternative Hypothesis (H₁):  
+At least one of the coefficients ≠ 0  
+
+F(2, 41) = 18.63  
+Prob > F = 0.0000
+
+The p-value is 0.0000 which is less than the significance level 0.05. As a result, we reject the null hypothesis at the 5% significance level.  Based on the F-test, we have F statistics of 18.63, there is strong evidence to conclude that the coefficients for materials ln(m) and energy ln(e) are jointly significant in the Cobb-Douglas production function. This suggests that both materials and energy have a statistically significant impact on the production output.
+
+D) For a Cobb-Douglas production function to exhibit constant return to scale, the sum of the power on each variable should be one. Hence, when we linearize the regression model, we should have the sum of the coefficients equal to 1.
+
+### Constant Returns to Scale Test
+
+Null Hypothesis (H₀):  
+β_lnK + β_lnL + β_lnE + β_lnM = 1  
+
+Alternative Hypothesis (H₁):  
+β_lnK + β_lnL + β_lnE + β_lnM ≠ 1  
+
+F(1, 41) = 0.36  
+Prob > F = 0.5530
+
+The p-value is 0.5530, which is greater than the significance level 0.05.  This means we fail to reject the null hypothesis at the 5% significance level.  Based on the F-test, there is no sufficient evidence to reject the null hypothesis that the production function exhibits constant returns to scale. In our case, the sum of the coefficients of the input variables (capital, labor, energy, and materials) is not significantly different from 1, indicating that the production function may indeed exhibit constant returns to scale. Usually, constant return to scale indicates that if all inputs are increased by a certain percentage, the output is expected to increase by the same percentage.
+
