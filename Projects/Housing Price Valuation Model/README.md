@@ -53,6 +53,14 @@ OLS regression including structural and location variables.
 Creation of neighborhood dummy variables and re-estimation.  
 Comparison of results before and after removing outliers.
 
+## Part C – Relationship Between Price and Distance to CBD
+
+<p align="center">
+  <img src="house_price_cbd.png" width="650">
+</p>
+
+The figure above displays a scatter plot of house selling prices against distance to the Central Business District (CBD), along with a fitted regression line.
+
 ### Part D – Interpretation
 Economic interpretation of coefficients and assessment of model fit.
 
