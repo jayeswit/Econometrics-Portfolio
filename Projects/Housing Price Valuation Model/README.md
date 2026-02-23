@@ -67,14 +67,21 @@ Comparison of results before and after removing outliers.
 The figure above illustrates the relationship between house selling prices and distance to the nearest interstate. The fitted regression line summarizes the average effect of interstate proximity on housing values.
 The figure above displays a scatter plot of house selling prices against distance to the Central Business District (CBD), along with a fitted regression line.
 
-### Part D – Interpretation
-Economic interpretation of coefficients and assessment of model fit.
+### Part D – Investment Feasibility Analysis
+Applied OLS housing price model with location analysis and investment feasibility evaluation.
 
 ---
 
 ## Key Takeaways
 
-- Structural characteristics (size and bathrooms) are strong predictors of housing prices.
-- Distance to the central business district significantly affects home valuation.
-- Including neighborhood fixed effects improves model explanatory power.
-- Removing extreme outliers produces more stable coefficient estimates while maintaining overall statistical significance.
+- **Structural attributes drive value.** Square footage and number of bathrooms are the strongest and most economically meaningful determinants of housing prices.
+
+- **Location materially affects valuation.** Proximity to the Central Business District (CBD) significantly influences property values, confirming the importance of urban accessibility in housing markets.
+
+- **Neighborhood fixed effects matter.** Controlling for neighborhood heterogeneity improves model explanatory power and isolates true structural effects.
+
+- **Model refinement improves reliability.** Removing extreme outliers stabilizes coefficient estimates without materially reducing overall explanatory strength (R² ≈ 0.58).
+
+- **Renovation decisions can be evaluated quantitatively.** Applying regression results to an NPV framework shows that adding a bathroom is economically justified under reasonable cost assumptions.
+
+- **Empirical results support practical investment decisions.** The integration of econometric modeling with capital budgeting demonstrates how statistical analysis can inform real-world real estate strategy.
