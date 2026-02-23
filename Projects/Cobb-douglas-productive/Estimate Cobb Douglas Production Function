@@ -1,0 +1,22 @@
+A.)To estimate the Cobb-Douglas production function, we need to linearize it so that we can apply the Ordinary Least Squares (OLS) regression. 
+
+1.We write the general form of the Cobb-Douglas production function
+
+Q = A K^α L^β E^γ M^δ
+
+2. Then, we take natural log on every component in our regression line:
+
+
+ln(Q) = ln(A) + α ln(K) + β ln(L) + γ ln(E) + δ ln(M)
+
+3. We could set up the regression line by using ln(Q) as our dependent variable
+
+ln(Q) = β₀ + β₁ ln(K) + β₂ ln(L) + β₃ ln(E) + β₄ ln(M)
+
+To find the regression line, we first generate variables equal to natural log.
+Code:
+gen lnq=ln(q)
+gen lnk=ln(k)
+gen lnl=ln(l)
+gen lnm=ln(m)
+gen lne=ln(e)
