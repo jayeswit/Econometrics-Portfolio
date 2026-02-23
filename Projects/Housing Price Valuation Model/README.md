@@ -56,7 +56,7 @@ Comparison of results before and after removing outliers.
 ## Part C – Relationship Between Price and Distance to CBD
 
 <p align="center">
-  <img src="house_price_cbd.png" width="650">
+  <img src="HousebyCBD.png" width="650">
 </p>
 
 The figure above displays a scatter plot of house selling prices against distance to the Central Business District (CBD), along with a fitted regression line.
