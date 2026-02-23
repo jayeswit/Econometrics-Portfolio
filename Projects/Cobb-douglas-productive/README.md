@@ -16,8 +16,3 @@ ln(Q) = ln(A) + α ln(K) + β ln(L) + γ ln(E) + δ ln(M) + u
 - Materials (lnM) is statistically significant and economically meaningful.
 - Joint significance test indicates materials and energy matter jointly.
 - CRS test fails to reject: evidence consistent with constant returns to scale.
-
-## Files
-- `report.pdf` (executive-style write-up)
-- `outputs/` (screenshots of regression + hypothesis tests)
-- `code/` (STATA do-file)
