@@ -53,12 +53,19 @@ OLS regression including structural and location variables.
 Creation of neighborhood dummy variables and re-estimation.  
 Comparison of results before and after removing outliers.
 
-## Part C – Relationship Between Price and Distance to CBD
+## Part C – Relationship Between Price and Distance to CBD and Interstate
 
 <p align="center">
   <img src="HousebyCBD.png" width="650">
 </p>
 
+### House Selling Price by Distance to Interstate
+
+<p align="center">
+  <img src="HousebyInterstate.png" width="650">
+</p>
+
+The figure above illustrates the relationship between house selling prices and distance to the nearest interstate. The fitted regression line summarizes the average effect of interstate proximity on housing values.
 The figure above displays a scatter plot of house selling prices against distance to the Central Business District (CBD), along with a fitted regression line.
 
 ### Part D – Interpretation
