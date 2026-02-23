@@ -1,0 +1,228 @@
+a) Physical characteristics: house sqft, lot sqft, #rooms, #bathrooms, age, year
+Location factors: distance to CBD, distance to interstate, neighborhood
+
+## Summary Statistics
+Regression before cleaning the data/dropping outliers:
+regress sellingprice ageinyears rooms bathrooms neighborhood distancetoCBDfeet distancetointerstatefeet squarefootageofhouse squarefootagelot, robust
+
+| Variable              | Obs | Mean      | Std. Dev. | Min     | Max      |
+|----------------------|-----|-----------|-----------|---------|----------|
+| sellingprice         | 324 | 99,935.1  | 41,019.1  | 24,700  | 285,000  |
+| ageinyears           | 323 | 19.613    | 43.942    | 0       | 550      |
+| rooms                | 321 | 6.7259    | 2.5835    | 4       | 50       |
+| bathrooms            | 324 | 2.3364    | 0.7676    | 1       | 4        |
+| neighborhood         | 324 | 2.2346    | 2.1723    | 0       | 6        |
+| distanceCBDfeet      | 324 | 4,029,907 | 7.22e+07  | 1,000   | 1.30e+09 |
+| distanceinterstateft | 323 | 945,888.2 | 1.67e+07  | 1,000   | 3.00e+08 |
+| squarefootagehouse   | 321 | 2,111.1   | 700.33    | 735     | 5,136    |
+| squarefootagelot     | 324 | 39,394.2  | 39,406.9  | 1,710   | 544,500  |
+
+
+## Baseline Regression Results
+
+**Dependent variable:** sellingprice  
+**Estimation method:** OLS with robust standard errors  
+
+Number of observations = 319  
+F(8, 310) > 9999.00  
+Prob > F = 0.0000  
+R² = 0.5539  
+Root MSE = 2.8e+05  
+
+| Variable          | Coefficient | Robust Std. Err. | t-stat | p-value | 95% Confidence Interval |
+|------------------|------------|------------------|--------|---------|-------------------------|
+| ageinyears       | -2874.90*** | 468.13 | -6.14 | 0.000 | [-3796.01, -1953.78] |
+| house_size       | 281.51***  | 50.55  | 5.57  | 0.000 | [182.04, 380.97] |
+| lot_size         | 0.5351     | 0.7483 | 0.71  | 0.475 | [-0.9737, 2.0073] |
+| rooms            | 8352.73    | 5373.30 | 1.55 | 0.085 | [-1968.81, 14574.65] |
+| bathrooms        | 81517.94** | 3789.44 | 2.25 | 0.025 | [10682.98, 159712.9] |
+| dist_cbd         | -0.0000209*** | 0.000002 | -9.90 | 0.000 | [-0.0000163, -0.0000244] |
+| dist_interstate  | -0.00000549*** | 0.000001 | -4.24 | 0.000 | [-0.00000799, -0.00000293] |
+| neighborhood     | -26753.11*** | 7099.32 | -3.77 | 0.000 | [-40722.06, -12784.16] |
+| Constant         | 10372.26    | 51150.38 | 0.20 | 0.839 | [-90273.57, 111018.1] |
+
+\* p < 0.10  
+\** p < 0.05  
+\*** p < 0.01  
+
+Create dummy variable for neighborhood 
+
+## Neighborhood Distribution
+
+| Neighborhood | Frequency | Percent | Cumulative |
+|--------------|-----------|---------|------------|
+| 0            |    121    | 37.35   |    37.35   |
+| 1            |    27     | 8.33    |    45.68   |
+| 2            |    47     | 14.51   |    60.19   |
+| 3            |    7      | 2.16    |    62.35   |
+| 4            |    61     | 18.83   |    81.17   |
+| 5            |    28     | 8.64    |    89.81   |
+| 6            |    33     | 10.19   |    100.00  |
+
+Total observations = 324
+
+## Regression with Neighborhood Fixed Effects
+
+**Dependent variable:** sellingprice  
+**Estimation method:** OLS with robust standard errors  
+
+Linear regression
+
+Number of obs   =        319
+F(13, 305)      =     99999.00
+Prob > F        =       0.0000
+R-squared       =       0.5658
+Root MSE        =     2.8e+05
+
+
+------------------------------------------------------------------------------
+ sellingprice |      Coef.   Robust Std. Err.      t     P>|t|     [95% Conf. Interval]
+--------------+-----------------------------------------------------------------------
+ ageinyears   |   -2928.397      500.1804     -5.85    0.000    -3912.638   -1944.156
+ rooms        |    29956.33      5930.995      5.05    0.000     18285.48    41627.18
+ bathrooms    |    93272.50      36068.31      2.59    0.010     22298.27   164246.7
+              |
+ neighborhood |
+            1 |   -133929.0      92856.26     -1.44    0.150    -316648.9    48791.03
+            2 |   -153564.7      48862.28     -3.14    0.002    -249714.5   -57414.85
+            3 |   -175456.0      68987.81     -2.54    0.011    -311202.9   -39698.27
+            4 |   -134242.6      41452.85     -3.24    0.001    -215812.4   -52672.86
+            5 |   -199084.1      52648.35     -3.78    0.000    -302684.1   -95484.14
+            6 |   -124907.7      61259.28     -2.04    0.042    -245452.0    -4363.37
+              |
+ distanceCBDfeet        |    0.0001823     0.0000231      7.90    0.000      0.0001369   0.0002277
+ distanceinterstatefeet |   -0.0004747     0.0001481     -3.21    0.001     -0.0007661  -0.0001833
+ squarefootagehouse     |    270.1006      48.92551      5.52    0.000      173.8263     366.3749
+ squarefootagelot       |    0.8032248     0.9226956      0.87    0.385     -1.012438     2.618888
+ _cons                  |    40487.10      66556.67       0.61    0.543    -90481.28    171455.5
+------------------------------------------------------------------------------
+
+
+Drop outliers: after dropping all the potential outliers, there are 304 observations left.
+
+## Summary Statistics (After Removing Outliers)
+
+| Variable                | Obs | Mean     | Std. Dev. | Min    | Max     |
+|-------------------------|-----|----------|-----------|--------|---------|
+| sellingprice            | 304 | 89,745.8 | 38,043.5  | 24,700 | 209,000 |
+| ageinyears              | 304 | 15.0033  | 24.3937   | 0      | 148     |
+| rooms                   | 304 | 6.5526   | 0.8582    | 4      | 9       |
+| bathrooms               | 304 | 2.3191   | 0.7666    | 1      | 4       |
+
+### Neighborhood (Dummy Variables)
+
+| Neighborhood | Obs | Mean     | Std. Dev. | Min | Max |
+|--------------|-----|----------|-----------|-----|-----|
+| 0            | 304 | 0.3717   | 0.4841    | 0   | 1   |
+| 1            | 304 | 0.0757   | 0.2649    | 0   | 1   |
+| 2            | 304 | 0.1541   | 0.3621    | 0   | 1   |
+| 3            | 304 | 0.0230   | 0.1502    | 0   | 1   |
+| 4            | 304 | 0.1974   | 0.3987    | 0   | 1   |
+| 5            | 304 | 0.0822   | 0.2752    | 0   | 1   |
+| 6            | 304 | 0.0954   | 0.2942    | 0   | 1   |
+
+### Location and Size Variables
+
+| Variable                | Obs | Mean     | Std. Dev. | Min  | Max    |
+|-------------------------|-----|----------|-----------|------|--------|
+| distanceCBDfeet         | 304 | 17,792.8 | 3,469.8   | 1,000 | 60,000 |
+| distanceinterstatefeet  | 304 | 16,396.4 | 9,136.7   | 1,000 | 34,000 |
+| squarefootagehouse      | 304 | 2,066.2  | 641.23    | 735   | 4,056  |
+| squarefootagelot        | 304 | 36,440.7 | 21,382.3  | 1,710 | 157,252 |
+
+
+```
+Linear Regression Model with no potential outliers:
+
+Number of obs   =        304
+F(13, 290)      =      39.15
+Prob > F        =     0.0000
+R-squared       =     0.5795
+Root MSE        =     2.5e+05
+
+
+------------------------------------------------------------------------------
+ sellingprice |      Coef.   Robust Std. Err.      t     P>|t|     [95% Conf. Interval]
+--------------+-----------------------------------------------------------------------
+ ageinyears   |   -3868.832      602.8159     -6.42    0.000    -5055.281   -2682.383
+ rooms        |    23028.36     20179.75       1.14    0.255    -16688.97    62745.69
+ bathrooms    |    87717.77     29577.05       2.97    0.003     29504.87   145930.7
+              |
+ neighborhood |
+            1 |   -44519.17     79563.66      -0.56    0.576    -201114.6   112076.3
+            2 |  -100122.2      49493.51      -2.02    0.044    -197534.2    -2710.183
+            3 |  -113044.8      76295.27      -1.48    0.140    -263207.5    37117.84
+            4 |  -132205.9      47852.66      -2.76    0.006    -226388.5   -38023.35
+            5 |  -121368.7      66547.01      -1.82    0.069    -252345.0     9607.696
+            6 |   -81437.81     64647.32      -1.26    0.209    -208675.2    45799.61
+              |
+ distanceCBDfeet        |   -0.3868483    0.0728061    -5.31    0.000     -0.5301436   -0.243553
+ distanceinterstatefeet |   -2.113419     3.477412     -0.61    0.544     -8.957586     4.730747
+ squarefootagehouse     |    256.1296     38.06003      6.73    0.000      181.2207     331.0385
+ squarefootagelot       |    0.2126522     1.0363       0.21    0.838     -1.826971      2.252275
+ _cons                  |   171034.1     119630.2       1.43    0.154    -64419.48     406487.6
+------------------------------------------------------------------------------
+```
+
+
+
+
+Using the coefficients from the regression model, the predicted price is:
+
+Predicted_priceᵢ = 171034.1  
++ 2800 × 256.1296  
++ 5200 × 0.2126522  
++ 4 × 23028.36  
++ 2 × 87717.77  
++ 2000 × (−0.3868483)  
++ 3500 × (−2.113419)  
++ 5 × (−121368.7)  
++ 8 × (−3868.832)
+
+= $510,887.72
+
+
+---
+
+### Part B
+
+Present Value Formula:
+
+PV = ∑ ( C / (1 + r)^t ),  t = 1 to 10  
+   = C/(1+r) + C/(1+r)² + ... + C/(1+r)¹⁰
+
+
+Given:
+
+510,887.72 = ∑ ( C / (1 + r)^t )
+
+510,887.72 = C/(1.0625) + C/(1.0625)² + ... + C/(1.0625)¹⁰
+
+
+Rewriting:
+
+510,887.72 = C * [ 1/1.0625 + 1/1.12890625 + ... + 1/1.833535771 ]
+
+
+Solving for C:
+
+C = 510,887.72 / ( 1/1.0625 + 1/1.12890625 + ... + 1/1.833535771 )
+
+C = 510,887.72 / ( 0.941176471 + 0.885812149 + ... + 0.545394323 )
+
+C = 510,887.72 / 7.307955907
+
+
+C = 69,908.42946 ≈ 69,908.43
+
+The present value formula of a perpetuity is the summation of the future cash flows over the discount rate. By rearranging the present value perpetuity formula, we can find the annual rent value. The “C” value is the annual cash flow, or annual rent value that we are looking for. The “r” value is the mortgage rate; this value can be found from the US Bank data, which shows various mortgage rates for different terms, but in our case, we are looking at the average 10-year fixed mortgage rate in California, which is 6.250%. The “t” value is the number of years that we are renting the house for, which is 10 years. The present value can be found from part a, which is $510,887.72. Taking the present value from part a and the average 10-year fixed mortgage rate in California and the number of years the house is being rented for, we can find the annual rent value by plugging those values into the rearranged perpetuity formula, which gives us $69,908.43. Therefore, the annual rent of the house should be $69,908.43.
+
+
+## Part C
+
+Graph for distance to CBD
+
+Comparing house selling price to the distance to CBD
+We get this graphical representation
+
+
