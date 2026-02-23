@@ -19,11 +19,33 @@ Includes joint significance testing and a test for constant returns to scale.
 
 ## Methods and Tools
 
+### Research Approach
+- Empirical economic analysis
+- Data-driven model estimation and validation
+- Applied quantitative decision-making
+
+### Software
 - STATA
-- Ordinary Least Squares (OLS)
-- Robust Standard Errors
-- Joint Hypothesis Testing
-- Log-Linear Modeling
+
+### Econometric Methods
+- Ordinary Least Squares (OLS) Regression
+- Log-Linear (Cobb-Douglas) Modeling
+- Robust Standard Errors (Heteroskedasticity-Consistent)
+- Joint Hypothesis Testing (F-tests)
+- Constant Returns to Scale Testing
+- Fixed Effects (Neighborhood Dummy Variables)
+- Model Re-Estimation After Outlier Removal
+
+### Statistical Analysis
+- Descriptive Statistics
+- Coefficient Interpretation and Economic Significance
+- Confidence Interval Analysis
+- Goodness-of-Fit Evaluation (R-squared, Root MSE)
+
+### Applied Finance Integration
+- Net Present Value (NPV) Analysis
+- Capital Budgeting Evaluation
+- Investment Decision Modeling
 
 ---
 
