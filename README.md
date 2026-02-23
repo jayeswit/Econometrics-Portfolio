@@ -1,52 +1,32 @@
-# Econometrics Portfolio – Jared Swit
+# Econometrics Portfolio
 
-This repository contains applied econometric projects using STATA and OLS regression.  
-Each project demonstrates statistical modeling, hypothesis testing, and economic interpretation.
-
----
-
-## 📊 Projects
-
-### 🏠 Housing Price Valuation Model
-OLS regression analyzing determinants of housing prices.
-
-**Techniques Used:**
-- Log transformations
-- Robust standard errors
-- Joint significance testing
-- Economic interpretation of coefficients
+This repository contains applied econometrics projects completed using STATA.  
+The work focuses on regression modeling, hypothesis testing, and economic interpretation of results.
 
 ---
 
-### 🏭 Cobb-Douglas Production Function
-Estimation of a Cobb-Douglas production function using log-linear OLS.
+## Projects
 
-**Techniques Used:**
-- Log-linear modeling
-- Robust regression
-- Joint hypothesis testing
-- Constant Returns to Scale testing
+### Housing Price Valuation Model
+OLS regression examining the determinants of housing prices.  
+Includes log transformations, robust standard errors, and joint hypothesis testing.
+
+### Cobb-Douglas Production Function
+Estimation of a Cobb-Douglas production function using log-linear OLS.  
+Includes joint significance testing and a test for constant returns to scale.
 
 ---
 
-## 🛠 Tools
+## Methods and Tools
+
 - STATA
-- OLS Regression
-- Hypothesis Testing
-- Econometric Interpretation
+- Ordinary Least Squares (OLS)
+- Robust Standard Errors
+- Joint Hypothesis Testing
+- Log-Linear Modeling
 
 ---
 
-## 📌 Purpose
+## Purpose
 
-This portfolio demonstrates applied econometrics skills for roles in:
-
-- Data Analysis
-- Finance
-- Economic Research
-- Investment Analysis
-
----
-
-**Author:** Jared Swit  
-Economics | Quantitative Analysis | Finance
+The goal of this repository is to demonstrate practical econometric analysis and clear interpretation of statistical results in applied settings.
