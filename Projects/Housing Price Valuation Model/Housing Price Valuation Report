@@ -1,3 +1,13 @@
+Introduction
+
+In real estate, the physical characteristics and locational factors of a property are among the main indicators determining its valuation in the market. Thus, understanding these factors is essential for homeowners in Orange County, particularly when making decisions about whether to sell or rent their houses. This report provides a thorough comprehensive analysis of residential property located in Orange County’s residential zone #5. The subject 8-year-old house is an 8,200 sqft structure with 4 rooms, 2 bathrooms on a 5,200 sqft lot. Its market value further increases due to its proximity to prime location, being 3,500 ft from the interstate highway and 2,000 ft from the Central Business District (CBD).
+The linear regression model is developed by utilizing a dataset of selling prices from a random sample of houses within the city in 2021 and 2023 from a local real estate company, to provide insights on the impact of various factors, including house size, lot size, age of property, number of rooms and bathrooms, and distance to prime locations, etc. This econometric model will help determine the property’s market worth and potential rental income. 
+
+Data
+
+In this case, the data has observations of outputs from 9 different variables: ‘sellingprice’ ‘ageinyears’, ‘rooms’, ‘bathrooms’, ‘neighborhood’, ‘distancetoCBDfeet’, ‘distancetointerstatefeet’, ‘squarefootageofhouse’, and ‘squarefootageoflot’. 
+
+
 a) Physical characteristics: house sqft, lot sqft, #rooms, #bathrooms, age, year
 Location factors: distance to CBD, distance to interstate, neighborhood
 
@@ -19,6 +29,10 @@ regress sellingprice ageinyears rooms bathrooms neighborhood distancetoCBDfeet d
 
 
 ## Baseline Regression Results
+Empirical Methodology
+
+To perform the regression model, we first regressed the model without cleaning any data. It showed there were 319 observations with an intercept of 10372.26 when all the variables equal zero. This y-intercept was not statistically significant because the P-value is 0.839, which is larger than the significance level of 0.05. 
+
 
 **Dependent variable:** sellingprice  
 **Estimation method:** OLS with robust standard errors  
@@ -46,6 +60,7 @@ Root MSE = 2.8e+05
 \*** p < 0.01  
 
 Create dummy variable for neighborhood 
+Knowing neighborhood is dummy variable, we created a dummy as well as cleaning out any possible outliers in the dataset, then regress the model as follow in data:
 
 ## Neighborhood Distribution
 
@@ -163,8 +178,39 @@ Root MSE        =     2.5e+05
  _cons                  |   171034.1     119630.2       1.43    0.154    -64419.48     406487.6
 ------------------------------------------------------------------------------
 ```
+Analyzing STATA Outputs
 
+## Linear Regression Model Specification
 
+Yi = β0 + β1X1 + β2X2 + β3X3 + β4X4 + β5X5 + β6X6 + β7X7 + β8X8 + β9X9 + ui,   i = 1, ..., 304
+
+Predicted_pricei =
+β0
++ β1(house_size)
++ β2(lot_size)
++ β3(rooms)
++ β4(bathrooms)
++ β5(age)
++ β6(dist_cbd)
++ β7(dist_interstate)
++ β8(neighborhood)
++ β9(time/sellingprice control)
++ ui
+
+Where:
+
+Predicted_price = predicted value of the house  
+β0 = intercept (base value when all variables equal zero)  
+β1 = effect of house square footage on price  
+β2 = effect of lot square footage on price  
+β3 = effect of number of rooms on price  
+β4 = effect of number of bathrooms on price  
+β5 = effect of house age on price  
+β6 = effect of distance to the Central Business District (in feet)  
+β7 = effect of distance to the nearest interstate (in feet)  
+β8 = neighborhood fixed effect (zones 0–6)  
+β9 = time/selling period control  
+ui = error term
 
 
 Using the coefficients from the regression model, the predicted price is:
@@ -223,8 +269,123 @@ The present value formula of a perpetuity is the summation of the future cash fl
 Graph for distance to CBD
 
 Comparing house selling price to the distance to CBD
-We get this graphical representation
+We get this graphical representation (LOOK AT READ ME!)
 
-<p align="center">
-  <img src="HousebyCBD.png" width="650">
-</p>
+Interpreting the Graph
+
+
+Gradient Analysis:
+
+
+Using the graphical analysis of the selling price of a house against the distance from a CBD,  we can see that the line of best fit has an upward slope.
+This means that, on average, house prices tend to increase as distance from the CBD increases.
+
+
+Why this Makes Sense
+
+
+Usually when properties are  close to a central business district or CBD, these properties are more desirable due to close proximity to workplaces, amenities, and services. This high demand drives the housing prices upward. 
+However, in some cases demand, or desirability can also be influenced by other factors such as congestion, noise, and pollution, which can make slightly farther locations more attractive for places to live.
+As we can see on the graph Houses right next to the CBD have a lower housing price. This may be because of traffic, less green spaces, and more noise. On the other hand, as we get farther and right around the sweet spot away from CBDs the houses here are the most expensive. Probably because it is the right amount of convenience, green places, traffic, noise, and congestion.
+As we can see from the single house that is farthest away from the CBD at some point houses will come back down in pricing because they begin to get too far away from the convenience of being next to a CBD.
+
+
+Graph for distance to Interstate
+
+
+The graph “House Selling Price by Distance to Interstate” shows a scatter plot of house prices against their distance to the Central Business District (CBD) as houses get closer and farther, along with a line of best fit.
+
+Comparing house selling price to the distance to Interstate
+
+
+We get this graphical representation (LOOK AT READ ME!)
+
+- Apologies in advance :)
+
+Gradient Analysis:
+Using the graphical analysis of the selling price of a house against the distance from an interstate,  we can see that the line of best fit has an upward slope.
+This means that, on average, house prices tend to increase as distance from the interstate increases.
+
+
+Why this makes sense
+Properties located right next to an interstate often suffer from very high noise levels and pollution, this makes the property less desirable and therefore drives prices down. From the graph we can see that as we move farther away from the interstate, these negative effects decrease which makes the properties more attractive, driving housing prices upward. 
+Proximity to the interstate can also be beneficial however because of the easy access to transportation, therefore properties at an optimal location that offer accessibility without the downsides of noise and pollution can be the most expensive. As we see from the graph properties in the middle tend to have the highest housing prices. 
+
+
+## Part D – Net Present Value (NPV) Analysis of Adding a Bathroom
+
+To determine whether converting an existing 100 square foot room into a bathroom is economically justified, we evaluate the project using Net Present Value (NPV). The NPV framework compares the present value of expected benefits to the upfront investment cost.
+
+### NPV Formula
+
+NPV = ∑ ( C / (1 + r)^t ) − C₀  
+t = 1 to 10
+
+Where:
+
+- C = annual benefit from the additional bathroom  
+- r = discount rate (average 10-year fixed mortgage rate in California)  
+- t = project lifespan (10 years)  
+- C₀ = upfront renovation cost  
+
+---
+
+### Measuring the Benefit (C)
+
+From Part A, the estimated coefficient on **bathrooms** is:
+
+β_bathrooms = 87,717.77
+
+This coefficient represents the estimated increase in house value from adding one additional bathroom, holding other factors constant.
+
+To convert this into a stream of annual benefits, we treat the value increase as being realized over the 10-year useful life of the renovation and discount it accordingly.
+
+---
+
+### Scenario 1: Cost = $350 per square foot
+
+Conversion cost:
+
+100 sq ft × $350 = $35,000
+
+Using the discount rate of 6.25% and a 10-year horizon:
+
+Present Value of Benefits = 167,501.1711  
+
+NPV = 167,501.1711 − 35,000  
+
+NPV = **132,501.171**
+
+Since NPV > 0, the renovation is economically justified under this cost assumption.
+
+---
+
+### Scenario 2: Cost = $950 per square foot
+
+Conversion cost:
+
+100 sq ft × $950 = $95,000
+
+NPV = 167,501.1711 − 95,000  
+
+NPV = **72,501.171**
+
+Although the NPV remains positive, the margin of economic benefit is substantially lower.
+
+---
+
+### Economic Interpretation
+
+Even though both scenarios yield positive NPV, several considerations are important:
+
+1. The regression coefficient (87,717.77) represents an estimated market value effect, not guaranteed realized cash flow.
+2. Renovation costs may include additional expenses such as permits, plumbing upgrades, and maintenance.
+3. If costs are financed rather than paid upfront, the effective C₀ may increase.
+4. The bathroom coefficient (87,717.77) is lower than the higher-cost scenario’s implied present value stream, suggesting that marginal returns may diminish at elevated renovation costs.
+
+Thus, while both scenarios are technically profitable under the model assumptions, the lower-cost scenario provides a significantly stronger economic justification.
+
+
+
+
+
