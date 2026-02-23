@@ -1,0 +1,31 @@
+Discussion
+
+
+	Interpreting the graph of “House Selling Price by Distance to CBD” why does it make sense that as we get farther houses tend to increase in price?
+Usually when properties are close to a central business district or CBD, these properties are more desirable due to close proximity to workplaces, amenities, and services. This high demand drives the housing prices upward. 
+However, in some cases demand, or desirability can also be influenced by other factors such as congestion, noise, and pollution, which can make slightly farther locations more attractive for places to live.
+As we can see on the graph Houses right next to the CBD have a lower housing price. This may be because of traffic, less green spaces, and more noise. On the other hand, as we get farther and right around the sweet spot away from CBDs the houses here are the most expensive. Probably because it is the right amount of convenience, green places, traffic, noise, and congestion.
+As we can see from the single house that is farthest away from the CBD at some point houses will come back down in pricing because they begin to get too far away from the convenience of being next to a CBD.
+
+
+To continue interpreting the graph of “House selling Price by Distance to Interstate” why do house prices increase on average as we start to stray away from interstates? 
+Properties located right next to an interstate often suffer from very high noise levels and pollution, this makes the property less desirable and therefore drives prices down. From the graph we can see that as we move farther away from the interstate, these negative effects decrease which makes the properties more attractive, driving housing prices upward. 
+Proximity to the interstate can also be beneficial however because of the easy access to transportation, therefore properties at an optimal location that offer accessibility without the downsides of noise and pollution can be the most expensive. As we see from the graph, properties in the middle tend to have the highest housing prices. 
+
+
+Conclusion
+	
+Taking into account the linear regression analysis along with the graphical representations of house prices in relation to their distances from the Central Business District (CBD) and their distance from interstates we can see valuable insights into how the housing market dynamic works with residential properties in Orange County.
+First we have the proximity to the CBD. The regression analysis shows that as distance to CBD increases, housing prices will also increase on average, this is shown with an upward sloping line of best fit on the scatter plot of house prices against distance to CBD. We can see that finding the sweet spot between proximity from the CBD and distance from the CBD offers us the most expensive houses. This is due to a combination of factors and preferences buyers have when looking for a house.
+	Similarly we can see the same effect with the distance from the interstates, the analysis indicates that house prices increase as distance from the interstate increases on average as well, and this is also shown with an upward slope in the scatter plot. Showing us through graphical representation and the regression analysis that both the distance from the CBD and interstate have an optimal distance that have the highest demands, as shown with the increase in housing prices. 
+	Using the regression model we also see other variables such as the size of the house, lot size, age of the property, number of rooms, bathrooms, and the neighborhood. These are all characteristics that also determine the properties value. Each one either increases or decreases the housing price.
+	For homeowners in Orange County’s residential zone #5, understanding these factors is crucial for informed decision making, with selling, renting, and buying properties. How far the house is from the CBD and the interstate, along with the physical characteristics of the property, will influence the market value of the house.
+Looking at our subjects favorable location and characteristics
+Location: 2,000 feet from the CBD and 3,500 feet from the interstate.
+Physical Attributes: House is 8 years old, 4 rooms, 2 bathrooms, and has a 5,200 square foot lot.
+
+
+These factors give this property a very appealing price well in the middle of the market, this could lead to a higher valuation or rental income, due to a good balance between accessibility and quality of living. 
+Homeowners should take advantage of these insights to determine the selling price of their properties. This showcases the advantages and disadvantages of location, and favorable physical features of a house. Leveraging these factors can lead to maximize returns for a homeowner, or investor  
+
+
